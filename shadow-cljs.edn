@@ -1,0 +1,23 @@
+;; shadow-cljs configuration
+{:deps {:aliases [:dev]}                ; Use deps.edn with :dev alias
+
+ :dev-http {3001 ["resources/public" "classpath:public"]}
+
+ :builds
+ {:app
+  {:target :browser
+   :output-dir "public/js"
+   :asset-path "/js"
+
+   :modules
+   {:ui {:init-fn ui.core/main!
+         :preloads [devtools.preload]}}
+
+   :devtools
+   {:after-load ui.core/main!
+    :http-root "public"
+    :http-port 3001}
+
+   :compiler-options
+   {:optimizations :advanced
+    :source-map true}}}}

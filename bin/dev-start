@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source .env
+
+clj -A:dev -M -m app.main &
+JVM_PID=$!
+
+trap "kill $JVM_PID 2>/dev/null" EXIT
+
+npm run shadow

@@ -1,0 +1,26 @@
+{:deps
+ {nrepl/nrepl {:mvn/version "1.2.0"}
+  cider/cider-nrepl {:mvn/version "0.50.2"}
+  com.cognitect/transit-clj {:mvn/version "1.0.333"}
+  com.yetanalytics/colossal-squuid {:mvn/version "0.1.5"
+                                    :exclusions
+                                    [ ;; important to avoid `java.lang.NoSuchMethodError: 'boolean com.google.protobuf.GeneratedMessageV3.isStringEmpty(java.lang.Object)'         at com.google.cloud.secretmanager.v1.ListSecretsRequest.getSerializedSize(ListSecretsRequest.java:355)`
+                                     org.clojure/clojurescript]}
+  lambdaisland/uri {:mvn/version "1.19.155"}
+  hiccup/hiccup {:mvn/version "2.0.0"}
+  ring/ring-core {:mvn/version "1.15.3"}
+  co.deps/ring-etag-middleware {:mvn/version "0.2.1"}
+  dbval/dbval {:git/url "git@github.com:maxweber/dbval.git"
+               :sha "105e996ed0b95abeebc55e90e8a88044a99f1f9d"}
+  simplemono.parts/replicant {:git/url "https://github.com/simplemono/parts.git"
+                              :sha "e14947ec42e252b871ec0b451bd66a7045884991"
+                              :deps/root "replicant"}
+  simplemono.parts/ring {:git/url "https://github.com/simplemono/parts.git"
+                         :sha "ee426fd9d7d7e3e8e738d64bd6e8662468ffc3a5"
+                         :deps/root "ring"}
+  simplemono.parts/httpkit  {:git/url "https://github.com/simplemono/parts.git"
+                             :sha "a9b40860196539a36939eed75c672696faf6d158"
+                             :deps/root "httpkit"}}
+ :aliases
+ {:dev {:extra-deps {binaryage/devtools {:mvn/version "1.0.7"}
+                     thheller/shadow-cljs {:mvn/version "2.28.18"}}}}}
